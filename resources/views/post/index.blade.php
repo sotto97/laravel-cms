@@ -1,12 +1,13 @@
 <html>
 
 <head>
+    <title>CMS</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 
 <body>
     <div id="app" class="container p-3">
-        <h1 class="mb-4">シンプルなCMSのサンプル</h1>
+        <h1 class="mb-4">CMSサンプル</h1>
 
         <!-- 一覧表示部分 -->
         <div v-if="isStatusIndex">
@@ -27,9 +28,7 @@
 
         <!--  エディタ表示部分  -->
         <div v-if="isStatusCreate || isStatusEdit">
-
             <input class="form-control mb-3" type="text" placeholder="タイトル" v-model="postTitle">
-
             <!-- ここにリッチテキスト・エディタが表示されます -->
             <div id="editor"></div>
 
@@ -47,7 +46,7 @@
         Vue.createApp({
         data() {
             return {
-                status: 'index', // 👈 ここの内容で表示切り替え
+                status: 'index', // 👈ここの内容で表示切り替え
                 posts: [],
                 currentPost: {},
                 postTitle: '',  // タイトル
@@ -56,17 +55,13 @@
         },
         methods: {
             initRichEditor(defaultDescription) {
-
                 const target = document.querySelector('#editor');
                 ClassicEditor.create(target)
                     .then(editor => {
-
                         this.postTitle = this.currentPost.title || '';
                         this.richEditor = editor;
                         this.richEditor.setData(defaultDescription);
-
                     });
-
             },
             getPosts() {
 

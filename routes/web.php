@@ -26,3 +26,6 @@ Route::prefix("post")->group(function () {
     Route::put("/{post}", [PostController::class, "update"]);
     Route::delete("/{post}", [PostController::class, "destroy"]);
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
