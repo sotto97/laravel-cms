@@ -7,3 +7,11 @@
 
 ### ライブラリ
 * [mavonEditor](https://github.com/hinesboy/mavonEditor?ref=kabanoki.net)
+
+# 参考リンク
+* CMS / Laravel (結局不採用)
+  * https://blog.capilano-fw.com/?p=8449
+* mavonEditorの使い方
+  * https://www.kabanoki.net/3452/
+* mavonEditor公式ドキュメント
+  * https://github.com/hinesboy/mavonEditor?ref=kabanoki.net
