@@ -9,7 +9,6 @@
         <h1>MavonEditor</h1>
         <mavon-editor :language="'ja'" v-model="context"></mavon-editor>
         <button type="button" class="btn btn-primary" @click="onSave">保存する</button>
-        <p>@{{ context }}</p>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
