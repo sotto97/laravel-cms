@@ -20,6 +20,7 @@ Route::get("/", function () {
 
 Route::prefix("post")->group(function () {
     Route::get("/", [PostController::class, "index"]);
+    Route::get("/test", [PostController::class, "test"]);
     Route::get("/list", [PostController::class, "list"]);
     Route::get("/{post}", [PostController::class, "show"]);
     Route::post("/", [PostController::class, "store"]);
@@ -28,4 +29,4 @@ Route::prefix("post")->group(function () {
 });
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get("/home", "HomeController@index")->name("home");

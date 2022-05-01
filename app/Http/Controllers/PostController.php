@@ -16,6 +16,10 @@ class PostController extends Controller
     {
         return view("post.index");
     }
+    public function test()
+    {
+        return view("post.test");
+    }
 
     public function list()
     {
