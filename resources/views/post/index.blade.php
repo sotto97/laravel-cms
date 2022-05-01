@@ -61,46 +61,31 @@
                     });
             },
             getPosts() {
-
                 const url = '/post/list';
                 axios.get(url)
                     .then(response => {
-
                         this.posts = response.data;
-
                     });
-
             },
             setCurrentPost(post) {
-
                 this.currentPost = post;
                 this.status = 'edit';
-
             },
             changeStatus(status) {
-
                 this.status = status;
-
             },
             onSave() {
-
                 if(confirm('保存します。よろしいですか？')) {
-
                     let url = '';
                     let method = '';
-
                     if(this.isStatusCreate) {
 
                         url = '/post';
                         method = 'POST';
-
                     } else if(this.isStatusEdit) {
-
                         url = `/post/${this.currentPost.id}`;
                         method = 'PUT';
-
                     }
-
                     const params = {
                         _method: method,
                         title: this.postTitle,
@@ -108,96 +93,60 @@
                     };
                     axios.post(url, params)
                         .then(response => {
-
                             if(response.data.result === true) {
-
                                 this.getPosts();
                                 this.changeStatus('index');
-
                             }
-
                         })
                         .catch(error => {
-
                             console.log(error); // エラーの場合
-
                         });
-
                 }
-
             },
             onDelete(post) {
-
                 if(confirm('削除します。よろしいですか？')) {
-
                     const url = `/post/${post.id}`;
                     axios.delete(url)
                         .then(response => {
-
                             if(response.data.result === true) {
-
                                 this.getPosts();
-
                             }
-
                         });
-
                 }
-
             }
         },
         computed: {
             isStatusIndex() {
-
                 return (this.status === 'index');
-
             },
             isStatusCreate() {
-
                 return (this.status === 'create');
-
             },
             isStatusEdit() {
-
                 return (this.status === 'edit');
-
             }
         },
         watch: {
             status(value) {
-
                 if(value === 'create') {
-
                     this.currentPost = {};
-
                 }
-
                 const editorKeys = ['create', 'edit'];
                 const defaultDescription = (value === 'edit') ? this.currentPost.description : '';
-
                 if(editorKeys.includes(value)) { // 👈 `create` か `edit` の場合だけ CKEditor を起動
-
                     Vue.nextTick(() => {
-
                         this.initRichEditor(defaultDescription);
-
                     });
-
                 }
-
             }
         },
         setup() {
-
             return {
                 richEditor: Vue.reactive({}) // 👈 reactive変数をつくる
             }
-
         },
         mounted() {
-
             this.getPosts();
-
         }
     }).mount('#app');
 
