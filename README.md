@@ -4,6 +4,7 @@
 ### 言語/FW
 * Laravel
 * Vue.js
+* Tailwind CSS ※導入予定
 
 ### ライブラリ
 * [mavonEditor](https://github.com/hinesboy/mavonEditor?ref=kabanoki.net)
@@ -15,3 +16,4 @@
   * https://www.kabanoki.net/3452/
 * mavonEditor公式ドキュメント
   * https://github.com/hinesboy/mavonEditor?ref=kabanoki.net
+  * http://www.mavoneditor.com/
